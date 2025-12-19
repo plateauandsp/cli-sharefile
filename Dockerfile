@@ -1,14 +1,13 @@
 # 使用基于 Debian 的精简镜像
 FROM python:3.11-slim
 
-# 1. 替换 Debian APT 源为清华大学镜像源 (针对 Debian 12 Bookworm 优化)
-# 兼容旧版的 sources.list 和新版的 debian.sources 格式
+# 1. 替换 Debian APT 源为清华大学镜像源
 RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list.d/debian.sources || \
     sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list && \
     sed -i 's/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list.d/debian.sources || \
     sed -i 's/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
 
-# 2. 安装 tzdata 并设置时区 (Debian 使用 apt-get)
+# 2. 安装 tzdata 并设置时区 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends tzdata && \
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
