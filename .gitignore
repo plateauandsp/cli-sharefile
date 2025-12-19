@@ -1,0 +1,53 @@
+# === Python 基础过滤 ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# === 虚拟环境过滤 ===
+venv/
+.venv/
+ENV/
+bin/
+include/
+lib/
+pip-selfcheck.json
+
+# === Docker 相关过滤 ===
+# 过滤掉本地构建时可能产生的临时数据
+.dockerignore
+
+# === 操作系统与 IDE 过滤 ===
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# === 业务特有过滤 ===
+# 建议过滤掉本地用于测试的共享数据目录
+/data/
+/test_data/
+*.log
+
+# === 配置文件过滤 ===
+.env
+.local_settings.py
